@@ -9,71 +9,72 @@ using namespace std;
 
 int ReadPositiveNumber(string Message)
 {
-    int Number = 0;
+int Number = 0;
 
-    do
-    {
-        cout << Message << endl;
-        cin >> Number;
+do
+{
+    cout << Message << endl;
+    cin >> Number;
 
-    } while (Number <= 0);
+} while (Number <= 0);
 
-    return Number;
+return Number;
 }
 
 int main()
 {   
-    cout << sizeof( ) << endl;
-    cout << "Variable Range : ( "  << Variable_MIN << " , " << Variable_MAX << " ) \n";
-    A++,A--;
-    A += A, -=, *=, /* , %=;
-    Prefix ++A, --A, Postfix A++, A--
-    A == A, A != A, A < A , A > A , A <= A , A >= A 
-    A && A, A ! A , A || A
-    CMATH LIB : round , sqrt , pow , floor , arc , ceil 
-   
-    struct Name
-    {
+cout << sizeof( ) << endl;
+cout << "Variable Range : ( "  << Variable_MIN << " , " << Variable_MAX << " ) \n";
+A++,A--;
+A += A, -=, *=, /* , %=;
+Prefix ++A, --A, Postfix A++, A--
+A == A, A != A, A < A , A > A , A <= A , A >= A 
+A && A, A ! A , A || A
+CMATH LIB : round , sqrt , pow , floor , arc , ceil 
 
-    };
-    
-    enum Name {  };
+struct Name
+{
 
-    Structure with Enums : Enums inside the structure.
+};
 
-    string Name = to_string( Name of Variable)
-    string to int  : int Variable = stoi(Name of string)
-    string to double  : double Variable = stod(Name of string)
-    string to float  : float Variable = stof(Name of string)
-    int, double, float Name = ( int, double, float) Name of int, double, float /(conversation between Variable)
-    int, double, float Name = int, double, float (Name of int, double, float) /(conversation between Variable)
-    
-    string : 
-    1. length
-    2. Name[?] , 0,1,2
-    3. string + string = Abd + ulkareem
-    4. int Name = stoi( Name of string) + stoi ( Name of string ) / or conversation to any type of Variable
+enum Name {  };
 
-    Function : Type of Function + Name + () + { } + return 
-    Procedure : void + Name + () + { } + for Reading and Printing
+Structure with Enums : Enums inside the structure.
 
-    getline(cin, Name of string)
+string Name = to_string( Name of Variable)
+string to int  : int Variable = stoi(Name of string)
+string to double  : double Variable = stod(Name of string)
+string to float  : float Variable = stof(Name of string)
+int, double, float Name = ( int, double, float) Name of int, double, float /(conversation between Variable)
+int, double, float Name = int, double, float (Name of int, double, float) /(conversation between Variable)
 
-    Function With Parameter : int Car(int A), int Car(int& A)
-    Switch Case : It's Compare between switch and the case if the result is true the body of case will implement if not will not implement
+string : 
+1. length
+2. Name[?] , 0,1,2
+3. string + string = Abd + ulkareem
+4. int Name = stoi( Name of string) + stoi ( Name of string ) / or conversation to any type of Variable
 
-    Function of Enum Type : 
-    1. conversation the Number to enum : int Name = 5 , return (Name of enum) Name of int;
+Function : Type of Function + Name + () + { } + return 
+Procedure : void + Name + () + { } + for Reading and Printing
 
-    for (int i = 1; i <= Length; i++)
-    for (int i = Length; i >= 1; i--)
-    
-    
-    
-    
-    
-    
-    
-    return 0;
+getline(cin, Name of string)
+
+Function With Parameter : int Car(int A), int Car(int& A)
+Switch Case : It's Compare between switch and the case if the result is true the body of case will implement if not will not implement
+
+Function of Enum Type : 
+1. conversation the Number to enum : int Name = 5 , return (Name of enum) Name of int;
+
+for (int i = 1; i <= Length; i++)
+for (int i = Length; i >= 1; i--)
+
+
+
+
+
+
+
+return 0;
+
 }
 
