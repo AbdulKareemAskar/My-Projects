@@ -58,6 +58,7 @@ Function : Type of Function + Name + () + { } + return
 Procedure : void + Name + () + { } + for Reading and Printing
 
 getline(cin, Name of string)
+cin.ignore(1,'\n');
 
 Function With Parameter : int Car(int A), int Car(int& A)
 Switch Case : It's Compare between switch and the case if the result is true the body of case will implement if not will not implement
