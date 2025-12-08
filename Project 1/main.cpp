@@ -67,8 +67,17 @@ Function of Enum Type :
 1. conversation the Number to enum : int Name = 5 , return (Name of enum) Name of int;
 
 for (int i = 1; i <= Length; i++)
+{
+}
 for (int i = Length; i >= 1; i--)
-
+{
+}
+int i = 1;
+while (i <= length )
+{
+cout << i << endl;
+i++;
+}
 
 
 
