@@ -72,6 +72,8 @@ cout << "Please enter a number ? "  << endl;
 cin >> Number;
 
 } while (Number < Length);
+
+return Number;
     
 float pi = 3.14159265358979323846;
 float Pi = 3.14159265358979323846;
