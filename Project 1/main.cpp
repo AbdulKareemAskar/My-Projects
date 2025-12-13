@@ -106,7 +106,7 @@ int, double, float Name = int, double, float (Name of int, double, float) /(conv
 
 
 
-    
+// Perfect number is : 6 = 1 + 2 + 3 , The number equal the number those divide it.    
 //Structure with Enums : Enums inside the structure.
 //
 //string : 
