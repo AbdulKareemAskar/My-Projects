@@ -91,11 +91,60 @@ int, double, float Name = ( int, double, float) Name of int, double, float /(con
     
 int, double, float Name = int, double, float (Name of int, double, float) /(conversation between Variable)
 
+    
+int RandomNumber(int From, int To)
+{
+    int randNum = rand() % (To - From + 1) + From;
+    return randNum;
+}
+srand((unsigned)time(NULL));
 
 
+enPrimeNotPrime CheckPrime(int Number)
+{
+	if(Number == 2)
+		return enPrimeNotPrime::Prime;
 
+	if(Number < 2)
+		return enPrimeNotPrime::NotPrime;
+
+
+	int M = sqrt(Number);
+
+	for (int i = 2; i <= M; i++)
+	{
+		if(Number % i == 0)
+			return enPrimeNotPrime::NotPrime;
+	}
+
+	return enPrimeNotPrime::Prime;
+}
     
 
+void CopyOnlyPrimaryNumbers(int arr[100], int arr2[100], int arrLength, int& arr2Length)
+{
+
+	for (int i = 0; i < arr1Length; i++)
+	{
+
+		if(CheckPrime(arr1[i]) == enPrimeNotPrime::Prime)
+		{
+			arr2[arr2Length] = arr1[i];
+			arr2Length++;
+		}
+
+	}
+
+}
+
+void Swap(int& A, int & B)
+{
+    int Temp = 0;
+    
+    Temp = A;
+    A = B;
+    B = Temp;
+}
 
 
 
@@ -103,6 +152,13 @@ int, double, float Name = int, double, float (Name of int, double, float) /(conv
 
 
 
+
+
+
+
+  
+  
+  
 
 
 
@@ -120,13 +176,6 @@ int, double, float Name = int, double, float (Name of int, double, float) /(conv
 //getline(cin, Name of string)
 //
 //Switch Case : It's Compare between switch and the case if the result is true the body of case will implement if not will not implement
-
-  
-  
-  
-
-
-
 
 return 0;
 
