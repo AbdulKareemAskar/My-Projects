@@ -22,6 +22,14 @@ return Number;
 }
 
 
+int ReadNumber()
+{
+    int Number;  
+    cout << "\nPlease enter a number? ";
+    cin >> Number;  
+    return Number;  
+}
+
 
 int main()
 {   
@@ -147,18 +155,385 @@ void Swap(int& A, int & B)
 }
 
 
+void FillArrayWithRandomNumbers(int arr[100], int &arrLength)
+{
+    cout << "\nEnter number of elements:\n";
+    cin >> arrLength;  
+    
+    for (int i = 0; i < arrLength; i++)
+        arr[i] = RandomNumber(1, 100);
+}
+
+
+void PrintArray(int arr[100], int arrLength)
+{
+	for (int i = 0; i < arrLength; i++)
+	cout << arr[i] << " ";
+	
+		
+	cout << "\n";
+}
+
+
+short FindNumberPositionInArray(int Number, int arr[100], int arrLength)
+{
+    for (int i = 0; i < arrLength; i++)
+    {
+        if (arr[i] == Number)
+            return i; 
+    }
+    return -1;
+}
+
+
+bool IsNumberInArray(int Number, int arr[100], int arrLength)
+{
+    return FindNumberPositionInArray(Number, arr, arrLength) != -1;
+}
 
 
 
 
+void AddArrayElement(int Number, int arr[100], int &arrLength)
+{
+    
+    arrLength++;
+   
+    arr[arrLength - 1] = Number;
+}
+
+void CopyArrayUsingAddArrayElement(int arrSource[100], int arrDestination[100], int arrLength, int &arrDestinationLength)
+{
+    for (int i = 0; i < arrLength; i++)
+		
+        AddArrayElement(arrSource[i], arrDestination, arrDestinationLength);
+}
 
 
+void InputUserNumbersInArray(int arr[100], int &arrLength)
+{
+    bool AddMore = true;  
+
+    
+    do
+    {
+       
+        AddArrayElement(ReadNumber(), arr, arrLength);
+
+      
+        cout << "\nDo you want to add more numbers? [0]:No,[1]:yes? ";
+        cin >> AddMore;  
+
+    } while (AddMore);  
+}
 
 
+void CopyOddNumbers(int arrSource[100], int arrDestination[100], int arrLength, int &arrDestinationLength)
+{
+    for (int i = 0; i < arrLength; i++)
+    {
+        if (arrSource[i] % 2 != 0)
+        {
+            AddArrayElement(arrSource[i], arrDestination, arrDestinationLength);
+        }
+		
+    }
+	
+}
 
+
+void CopyEvenNumbers(int arrSource[100], int arrDestination[100], int arrLength, int &arrDestinationLength)
+{
+    for (int i = 0; i < arrLength; i++)
+    {
+        if (arrSource[i] % 2 == 0)
+        {
+            AddArrayElement(arrSource[i], arrDestination, arrDestinationLength);
+        }
+		
+    }
+	
+}
   
   
+  void CopyPrimeNumbers(int arrSource[100], int arrDestination[100], int arrLength, int &arrDestinationLength)
+{
+    for (int i = 0; i < arrLength; i++)
+    {
+        if (CheckPrime(arrSource[i]) == enPrimeNotPrime::Prime)
+        {
+            AddArrayElement(arrSource[i], arrDestination, arrDestinationLength);
+        }
+		
+    }
+	
+}
+
+
+void CopyDistinctNumbersToArray(int arrSource[100], int arrDestination[100], int SourceLength, int &DestinationLength)
+{
+    for (int i = 0; i < SourceLength; i++)
+    {
+        if (!IsNumberInArray(arrSource[i], arrDestination, DestinationLength))
+        {
+            AddArrayElement(arrSource[i], arrDestination, DestinationLength);
+        }
+		
+    }
+	
+}
+
+
+void FillArray(int arr[100], int &arrLength)
+{
+    arrLength = 6;  
+    
+    arr[0] = 10;
+    arr[1] = 20;
+    arr[2] = 30;
+    arr[3] = 30;
+    arr[4] = 20;
+    arr[5] = 10;
+}
+
+
+bool IsPalindromeArray(int arr[100], int Length)
+{
   
+    for (int i = 0; i < Length; i++)
+    {
+        
+        if (arr[i] != arr[Length - i - 1])
+        {
+            return false;  
+        }
+		
+    }
+    
+    return true;
+}
+
+
+int OddCount(int arr[100], int arrLength)
+{
+    int Counter = 0;  
+
+    for (int i = 0; i < arrLength; i++)
+    {
+        if (arr[i] % 2 != 0)
+        {
+            Counter++;  
+        }
+    }
+
+    return Counter;  
+}
+
+
+int EvenCount(int arr[100], int arrLength)
+{
+    int Counter = 0;  
+
+    for (int i = 0; i < arrLength; i++)
+    {
+        if (arr[i] % 2 == 0)
+        {
+            Counter++;  
+        }
+    }
+
+    return Counter;  
+}
+
+
+int PositiveCount(int arr[100], int arrLength)
+{
+    int Counter = 0;  
+    
+    for (int i = 0; i < arrLength; i++)
+    {
+        if (arr[i] >= 0)
+        {
+            Counter++;  
+        }
+    }
+    
+    return Counter;  
+}
+
+
+int NegativeCount(int arr[100], int arrLength)
+{
+    int Counter = 0;  
+    
+    for (int i = 0; i < arrLength; i++)
+    {
+        if (arr[i] < 0)
+        {
+            Counter++;  
+        }
+    }
+    
+    return Counter;  
+}
+
+
+float MyABS(float Number)
+{
+    if (Number > 0)
+        return Number;
+    else
+        return Number * -1;  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
