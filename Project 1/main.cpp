@@ -61,6 +61,17 @@ return Number;
 }
 
 
+float ReadNumber(string Message)
+{
+    float Number = 0;  
+
+    cout << Message << endl;
+    cin >> Number;
+
+    return Number;  
+}
+
+
 int ReadNumber()
 {
     int Number;  
@@ -76,6 +87,17 @@ float ReadNumber()
     cout << "\nPlease enter a number? ";
     cin >> Number;  
     return Number;  
+}
+
+
+string ReadPinCode()
+{
+    string PinCode;  
+
+    cout << "Please enter PIN code \n";
+    cin >> PinCode;
+
+    return PinCode;
 }
 
 
@@ -132,6 +154,52 @@ int ReadNumberInRange(int From, int To)
 
     return Grade;  
 }
+
+
+float ReadTotalSales()
+{
+    float TotalSales;  
+
+    cout << "Please enter Total Sales? " << endl;
+    cin >> TotalSales;
+
+    return TotalSales;  
+}
+
+
+
+stPiggyBankContent ReadPiggyBankContent()
+{
+    stPiggyBankContent PiggyBankContent; 
+
+    cout << "Please enter the total number of Pennies: " << endl;
+    cin >> PiggyBankContent.Pennies;
+    cout << "Please enter the total number of Nickels: " << endl;
+    cin >> PiggyBankContent.Nickels;
+    cout << "Please enter the total number of Dimes: " << endl;
+    cin >> PiggyBankContent.Dimes;
+    cout << "Please enter the total number of Quarters: " << endl;
+    cin >> PiggyBankContent.Quarters;
+    cout << "Please enter the total number of Dollar bills: " << endl;
+    cin >> PiggyBankContent.Dollars;
+
+    return PiggyBankContent;  
+}
+
+
+
+strTaskDuration ReadTaskDuration()
+{
+    strTaskDuration TaskDuration; 
+
+    TaskDuration.NumberOfDays = ReadPositiveNumber("Please Enter Number Of Days?");
+    TaskDuration.NumberOfHours = ReadPositiveNumber("Please Enter Number Of Hours?");
+    TaskDuration.NumberOfMinutes = ReadPositiveNumber("Please Enter Number Of Minutes?");
+    TaskDuration.NumberOfSeconds = ReadPositiveNumber("Please Enter Number Of Seconds?");
+
+    return TaskDuration;  
+}
+
 
 ]********
 
@@ -599,12 +667,98 @@ struct Name
 
 };
 
+struct stPiggyBankContent
+{
+    int Pennies, Nickels, Dimes, Quarters, Dollars;
+};
+
+struct strTaskDuration
+{
+    int NumberOfDays, NumberOfHours, NumberOfMinutes, NumberOfSeconds;
+};
+
+
 enum Name {  };
 enum enOddOrEven { Odd = 1, Even = 2 };
 enum enPassFail { Pass = 1, Fail = 2 };
 enum enPrimNotPrime { Prime = 1, NotPrime = 2 };
+enum enOperationType { Add = '+', Subtract = '-', Multiply = '*', Divide = '/' };
+enum enDayOfWeek { Sat = 1, Sun = 2, Mon = 3, Tue = 4, Wed = 5, Thu = 6, Fri = 7 };
 enum enCharType { SamallLetter = 1, CapitalLetter = 2, SpecialCharacter = 3, Digit = 4 };
+enum enMonthOfYear { Jan = 1, Feb = 2, Mar = 3, Apr = 4, May = 5, 
+                     Jun = 6, Jul = 7, Aug = 8, Sep = 9, Oct = 10, 
+                     Nov = 11, Dec = 12 };
 
+
+
+enMonthOfYear ReadMonthOfYear()
+{
+    return (enMonthOfYear) ReadNumberInRange("Please enter a month [1 to 12]:", 1, 12);
+}
+
+
+string GetMonthOfYear(enMonthOfYear Month)
+{
+    switch (Month)
+    {
+    case enMonthOfYear::Jan:
+        return "January";
+    case enMonthOfYear::Feb:
+        return "February";
+    case enMonthOfYear::Mar:
+        return "March";
+    case enMonthOfYear::Apr:
+        return "April";
+    case enMonthOfYear::May:
+        return "May";
+    case enMonthOfYear::Jun:
+        return "June"; 
+    case enMonthOfYear::Jul:
+        return "July";
+    case enMonthOfYear::Aug:
+        return "August";
+    case enMonthOfYear::Sep:
+        return "September";
+    case enMonthOfYear::Oct:
+        return "October";
+    case enMonthOfYear::Nov:
+        return "November";
+    case enMonthOfYear::Dec:
+        return "December";
+    default:
+        return "Not a valid Month";  
+    }
+}
+
+
+enDayOfWeek ReadDayOfWeek()
+{
+    return (enDayOfWeek)ReadNumberInRange("Please enter day number (Sat=1, Sun=2, Mon=3, Tue=4, Wed=5, Thu=6, Fri=7)?", 1, 7);
+}
+
+
+string GetDayOfWeek(enDayOfWeek Day)
+{
+    switch (Day)
+    {
+        case enDayOfWeek::Sat:
+            return "Saturday";
+        case enDayOfWeek::Sun:
+            return "Sunday";
+        case enDayOfWeek::Mon:
+            return "Monday";
+        case enDayOfWeek::Tue:
+            return "Tuesday";
+        case enDayOfWeek::Wed:
+            return "Wednesday";
+        case enDayOfWeek::Thu:
+            return "Thursday";
+        case enDayOfWeek::Fri:
+            return "Friday";
+        default:
+            return "Not a valid Day";  
+    }
+}
 
 string GetFullName(stInfo Info, bool Reversed)
 {
@@ -675,6 +829,41 @@ void PrintNumberType(enNumberType NumberType)
         cout << "\n Number is Odd. \n";
 }
 
+
+
+void PrintNumberType(int Number)
+{
+    switch (CheckPrime(Number))
+    {
+    case enPrimNotPrime::Prime:
+        cout << "The number is Prime\n";
+        break;
+    case enPrimNotPrime::NotPrime:
+        cout << "The number is Not Prime\n";
+        break;
+    }
+}
+
+
+
+void PrintTaskDurationDetails(strTaskDuration TaskDuration)
+{
+    cout << "\n"; 
+
+    cout << TaskDuration.NumberOfDays << ":"
+         << TaskDuration.NumberOfHours << ":"
+         << TaskDuration.NumberOfMinutes << ":"
+         << TaskDuration.NumberOfSeconds << "\n";
+}
+
+
+void PrintLettersAtoZ()
+{
+    for (int i = 65; i <= 90; i++)
+    {
+        cout << char(i) << endl;  
+    }
+}
 
 
 char GetRandomCharacter(enCharType CharType)
@@ -776,6 +965,19 @@ enPassFail CheckMark(int Mark)
     else
         return enPassFail::Fail;
 }
+
+
+enOperationType ReadOpType()
+{
+    char OT = '+';  
+
+    cout << "Please enter Operation Type ( +, - , * , / )?\n";
+    cin >> OT;
+
+    return (enOperationType)OT;
+}
+
+
 
 
 ]*********
@@ -1799,6 +2001,278 @@ char GetGradeLetter(int Grade)
         return 'E';
     else
         return 'F';  
+}
+
+
+float GetCommissionPercentage(float TotalSales)
+{
+    if (TotalSales >= 1000000)
+        return 0.01; 
+    else if (TotalSales >= 500000)
+        return 0.02;  
+    else if (TotalSales >= 100000)
+        return 0.03;  
+    else if (TotalSales >= 50000)
+        return 0.05;  
+    else 
+        return 0.00; 
+}
+
+
+float CalculateTotalCommission(float TotalSales)
+{
+    return GetCommissionPercentage(TotalSales) * TotalSales;  
+}
+
+
+
+int CalculateTotalPennies(stPiggyBankContent PiggyBankContent)
+{
+    int TotalPennies = PiggyBankContent.Pennies * 1 
+                     + PiggyBankContent.Nickels * 5 
+                     + PiggyBankContent.Dimes * 10 
+                     + PiggyBankContent.Quarters * 25 
+                     + PiggyBankContent.Dollars * 100;
+
+    return TotalPennies;
+}
+
+float Calculate(float Number1, float Number2, enOperationType OpType)
+{
+    switch (OpType)
+    {
+    case enOperationType::Add:
+        return Number1 + Number2;  
+    case enOperationType::Subtract:
+        return Number1 - Number2; 
+    case enOperationType::Multiply:
+        return Number1 * Number2;  
+    case enOperationType::Divide:
+        return Number1 / Number2;  
+    default:
+        return Number1 + Number2; 
+    }
+}
+
+
+float SumNumbers()
+{
+    int Sum = 0;       
+    int Number = 0;    
+    int Counter = 1;   
+
+    Number = ReadNumber("Please enter Number " + to_string(Counter));
+
+    while (Number != -99)
+    {
+        Sum += Number; 
+        Counter++;     
+
+        Number = ReadNumber("Please enter Number " + to_string(Counter));
+    };
+
+    return Sum;  
+}
+
+
+float CalculateRemainder(float TotalBill, float TotalCashPaid)
+{
+    return TotalCashPaid - TotalBill;
+}
+
+
+float TotalBillAfterServiceAndTax(float TotalBill)
+{
+    TotalBill = TotalBill * 1.1;   
+    TotalBill = TotalBill * 1.16;  
+
+    return TotalBill; 
+}
+
+
+float HoursToDays(float NumberOfHours)
+{
+    return (float)NumberOfHours / 24;  
+}
+
+
+float HoursToWeeks(float NumberOfHours)
+{
+    return (float)NumberOfHours / (24 * 7);  
+}
+
+
+float DaysToWeeks(float NumberOfDays)
+{
+    return (float)NumberOfDays / 7;  
+}
+
+
+float NumberOfHours = ReadPositiveNumber("Please Enter Number Of Hours?");
+    
+float NumberOfDays = HoursToDays(NumberOfHours);
+
+float NumberOfWeeks = DaysToWeeks(NumberOfDays);
+
+
+
+int TaskDurationInSeconds(strTaskDuration TaskDuration)
+{
+    int DurationInSeconds = 0; 
+
+    DurationInSeconds = TaskDuration.NumberOfDays * 24 * 60 * 60;  
+    DurationInSeconds += TaskDuration.NumberOfHours * 60 * 60;  
+    DurationInSeconds += TaskDuration.NumberOfMinutes * 60;  
+    DurationInSeconds += TaskDuration.NumberOfSeconds;  
+
+    return DurationInSeconds;  
+}
+
+
+	
+
+strTaskDuration SecondsToTaskDuration(int TotalSeconds)
+{
+    strTaskDuration TaskDuration;  
+
+    const int SecondsPerDay = 24 * 60 * 60;
+    const int SecondsPerHour = 60 * 60;
+    const int SecondsPerMinute = 60;
+
+    int Remainder = 0;  
+
+    TaskDuration.NumberOfDays = floor(TotalSeconds / SecondsPerDay);
+    Remainder = TotalSeconds % SecondsPerDay;
+
+    TaskDuration.NumberOfHours = floor(Remainder / SecondsPerHour);
+    Remainder = Remainder % SecondsPerHour;
+
+    TaskDuration.NumberOfMinutes = floor(Remainder / SecondsPerMinute);
+    Remainder = Remainder % SecondsPerMinute;
+
+    TaskDuration.NumberOfSeconds = Remainder; 
+
+    return TaskDuration;  
+}
+
+
+float TotalMonths(float LoanAmount, float MonthlyInstallment)
+{
+    return LoanAmount / MonthlyInstallment;  
+}
+
+
+float MonthlyInstallment(float LoanAmount, float HowManyMonths)
+{
+    return LoanAmount / HowManyMonths; 
+}
+
+
+
+bool Login()
+{
+    string PinCode; 
+
+    do
+    {
+        PinCode = ReadPinCode();  
+
+        if (PinCode == "1234")  
+        {
+			system("color 2F"); 
+       		cout << "\nYour account balance is " << 7500 << '\n';  
+	
+            return true;  
+        }
+        else
+        {
+            cout << "\nWrong PIN\n"; 
+            system("color 4F");  
+        }
+
+    } while (PinCode != "1234");  
+
+    return false; 
+}
+
+
+	
+(The Way Number 2)
+bool Login()
+{
+    string PinCode;  
+
+    do
+    {
+        PinCode = ReadPinCode();  
+
+        if (PinCode == "1234")  
+        {
+            return true;  
+        }
+        else
+        {
+            cout << "\nWrong PIN\n";  
+            system("color 4F");  
+        }
+
+    } while (PinCode != "1234");  
+
+    return false;  
+}
+
+int main()
+{
+    if (Login())
+    {
+        system("color 2F"); 
+        cout << "\nYour account balance is " << 7500 << '\n';  
+    }
+
+    return 0;
+}
+
+	
+
+
+bool Login()
+{
+    string PinCode;  
+    int Counter = 3;
+
+    do
+    {
+        Counter--;  
+        PinCode = ReadPinCode();  
+
+        if (PinCode == "1234")  
+        {
+            return true;  
+        }
+        else
+        {
+            cout << "\nWrong PIN, you have " << Counter << " more tries\n";  
+        }
+
+    } while (Counter >= 1 && PinCode != "1234");  
+
+    return false;  
+}
+	
+int main()
+{
+    if (Login())
+    {
+        system("color 2F");  
+        cout << "\nYour account balance is " << 7500 << '\n';  
+    }
+    else
+    {
+        system("color 4F");  
+        cout << "\nYour card is blocked. Call the bank for help.\n"; 
+    }
+
+    return 0;  
 }
 	
 ]***********
