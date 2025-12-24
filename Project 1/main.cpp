@@ -10,7 +10,7 @@ using namespace std;
 (1) ReadNumbers :
 (2) Size and Range and Convert between Variable :
 (3) Perfect Numbers :
-(4) Digits And Reverse Numbers and Functions and Procedure for Them :
+(4) Digits Operation And Reverse Numbers and Functions and Procedure for Them :
 (5) Inverted Numbers and Letters Pattern :
 (6) Letters From A,AA,AAA To Z,ZZ,ZZZ :
 (7) Password Functions :
@@ -280,7 +280,7 @@ void PrintPerfectNumbersFrom1ToN(int Number)
 
 
 (4)(4)(4)(4)(4)(4)(4)(4)(4)(4)(4)(4)(4)(4)(4)(4)(4)(4)(4)(4)(4)(4)(4)(4)(4)(4)(4)(4)(4)
-******** Digits And Reverse Numbers and Functions and Procedure for Them *********** :
+******** Digits Operation And Reverse Numbers and Functions and Procedure for Them *********** :
 [
 
 void PrintDigits(int Number)
