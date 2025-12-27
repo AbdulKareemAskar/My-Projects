@@ -110,7 +110,7 @@ stRoundInfo PlayRound(short RoundNumber) {
 
     if (RoundInfo.Winner == enWinner::Player1) {
         SetColor("green");
-        cout << "\a"; 
+//        cout << "\a"; 
     }
     else if (RoundInfo.Winner == enWinner::Computer) {
         SetColor("red");
