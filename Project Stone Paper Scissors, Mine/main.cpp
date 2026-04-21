@@ -50,7 +50,7 @@ enGameOption ReadPlayerChoice()
 	cout << "Your Choice : [1]:Stone, [2]:Paper, [3]:Scissors ? ";
 	cin >> Number;
 
-	return (enGameOption)Number;
+	return enGameOption(Number - 1);
 }
 
 string GetChoiceName(enGameOption PlayerChoice)
@@ -73,7 +73,7 @@ string GetChoiceName(enGameOption PlayerChoice)
 
 string GetComputerChoice()
 {
-	enGameOption ComputerChoice = enGameOption(GetRandomNumber(1,3));
+	enGameOption ComputerChoice = enGameOption(GetRandomNumber(0,2));
 
 	switch(ComputerChoice)
 	{
@@ -107,11 +107,11 @@ string GetRoundWinner(string PlayerChoice,string ComputerChoice)
 
 void PrintRoundSummary(string PlayerChoice,string ComputerChoice, string WinnerName)
 {
-	cout << "____________  Round [" << GameResult.GameRounds << "] ____________\n\n";
+	cout << "\n\n____________  Round [" << GameResult.GameRounds << "] ____________\n\n";
 	cout << "Player One Choice : " << PlayerChoice << endl;
 	cout << "Computer Choice   : " << ComputerChoice << endl;
 	cout << "Round Winner      : " << WinnerName << endl;
-	cout << "____________  Round [" << GameResult.GameRounds << "] ____________\n\n";
+	cout << "____________________________________\n\n";
 }
 
 void SetScreenColor(string WinnerName)
@@ -147,10 +147,10 @@ void UpdateGameResult(string WinnerName)
 {
 
 	if(WinnerName == arrWinner[enWinner::PlayerOne])
-		GameResult.ComputerWinTimes++;
+		GameResult.PlayerOneWinTimes++;
 
 	else if(WinnerName == arrWinner[enWinner::Computer])
-		GameResult.PlayerOneWinTimes++;
+		GameResult.ComputerWinTimes++;
 
 	else
 		GameResult.DrawTimes++;
@@ -196,15 +196,15 @@ void PrintFinalGameSummary()
 	GetFinalWinner();
 
 	cout << "\n\n__________________________________________________________________\n\n";
-	cout << "                       +++ G a m e  O v e r +++                       \n\n";
-	cout << "\n\n__________________________________________________________________\n\n";
-	cout << "________________________ [Game Results ] _____________________________\n\n";
+	cout << "                       +++ G a m e  O v e r +++                       ";
+	cout << "\n__________________________________________________________________\n\n";
+	cout << "________________________ [Game Results ] _________________________\n\n";
 	cout << "GameRounds           : " << GameResult.GameRounds << endl;
 	cout << "Player One Won Times : " << GameResult.PlayerOneWinTimes << endl;
 	cout << "Computer Won Times   : " << GameResult.ComputerWinTimes << endl;
 	cout << "Draw Times           : " << GameResult.DrawTimes << endl;
 	cout << "Final Winner         : " << GameResult.FinalWinner << endl;
-	cout << "\n\n__________________________________________________________________\n\n";
+	cout << "__________________________________________________________________\n\n";
 
 }
 
@@ -224,6 +224,7 @@ void StartGame()
 
 		cout << "Do you want to play again ? Y/N ? ";
 		cin >> PlayAgain;
+		cout << "\n\n";
 
 	} while(PlayAgain == 'Y' || PlayAgain == 'y');
 
