@@ -238,6 +238,8 @@ void PrintFinalGameSummary(stGameResult& GameResult,const stGameData& GameData )
 
 void ClearScreen()
 {
+    stGameResult GameResult = GetGameResult();
+	
     system("cls");
     system("color 0F");
     GameResult = {};
@@ -245,6 +247,7 @@ void ClearScreen()
 
 void StartGame()
 {
+    
     stGameData GameData = GetGameData();
     stGameResult GameResult = GetGameResult();
 	 char PlayAgain = 'N';
